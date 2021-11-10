@@ -33,7 +33,7 @@ EMPTY = None
 HUMAN = 'human'
 COMPUTER = 'computer'
 
-
+#setting up the display of the game when it is first opened
 def main():
     global FPSCLOCK, DISPLAYSURF, REDPILERECT, BLACKPILERECT, REDTOKENIMG
     global BLACKTOKENIMG, BOARDIMG, ARROWIMG, ARROWRECT, HUMANWINNERIMG
