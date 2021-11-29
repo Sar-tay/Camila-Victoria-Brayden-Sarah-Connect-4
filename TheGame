@@ -294,7 +294,7 @@ def getPotentialMoves(board, tile, lookAhead):
         enemyTile = RED
     # Determines if the codes colour is black or red.
         
-    #Figures out the best move to make by comparing the possible moves and seeing which are the best or worse given the layout of the game.
+    #Figures out the best move to make by comparing the possible moves and seeing which are the best or worse given the layout of the game. BB
     potentialMoves = [0] * BOARDWIDTH
     for firstMove in range(BOARDWIDTH):
         dupeBoard = copy.deepcopy(board)
@@ -302,12 +302,12 @@ def getPotentialMoves(board, tile, lookAhead):
             continue
         makeMove(dupeBoard, tile, firstMove)
         if isWinner(dupeBoard, tile):
-            # a winning move automatically gets a perfect fitness
+            # a winning move automatically will be valued as the best choice. BB
             potentialMoves[firstMove] = 1
             break 
-            # don't bother calculating other moves
+            # don't bother calculating other moves. BB
         else:
-            # do other player's counter moves and determine best one
+            # do other player's counter moves and determine best one. BB
             if isBoardFull(dupeBoard):
                 potentialMoves[firstMove] = 0
             else:
@@ -317,18 +317,18 @@ def getPotentialMoves(board, tile, lookAhead):
                         continue
                     makeMove(dupeBoard2, enemyTile, counterMove)
                     if isWinner(dupeBoard2, enemyTile):
-                        # a losing move automatically gets the worst fitness
+                        # a losing move automatically will be valued as the worst choice. BB
                         potentialMoves[firstMove] = -1
                         break
                     else:
-                        # do the recursive call to getPotentialMoves()
+                        # do the recursive call to getPotentialMoves() BB
                         results = getPotentialMoves(dupeBoard2, tile, lookAhead - 1)
                         potentialMoves[firstMove] += (sum(results) / BOARDWIDTH) / BOARDWIDTH
     return potentialMoves
 
 
 def getLowestEmptySpace(board, column):
-    # Returns the row that has the lowest empty spot.
+    # Returns the row that has the lowest empty spot. BB
     for y in range(BOARDHEIGHT-1, -1, -1):
         if board[column][y] == EMPTY:
             return y
@@ -336,16 +336,16 @@ def getLowestEmptySpace(board, column):
 
 
 def isValidMove(board, column):
-    # Looks at each column, checks which are full and which having empty spaces in them.
-    # Returns true if their is empty space
-    # Returns false if the colum in full
+    # Looks at each column, checks which are full and which having empty spaces in them. BB
+    # Returns true if their is empty space. BB
+    # Returns false if the colum in full. BB
     if column < 0 or column >= (BOARDWIDTH) or board[column][0] != EMPTY:
         return False
     return True
 
 
 def isBoardFull(board):
-    # Returns True if there are no empty spaces anywhere on the board
+    # Returns True if there are no empty spaces anywhere on the board. BB
     for x in range(BOARDWIDTH):
         for y in range(BOARDHEIGHT):
             if board[x][y] == EMPTY:
@@ -354,32 +354,32 @@ def isBoardFull(board):
 
 
 def isWinner(board, tile):
-# Checks to see if there are four in a row anywhere on the board
-# Returns true if there is
-# Returns false if there is not
-    # check horizontal spaces
+# Checks to see if there are four in a row anywhere on the board. BB
+# Returns true if there is. BB
+# Returns false if there is not. BB
+    # check horizontal spaces. BB
     for x in range(BOARDWIDTH - 3):
         for y in range(BOARDHEIGHT):
             if board[x][y] == tile and board[x+1][y] == tile and board[x+2][y] == tile and board[x+3][y] == tile:
                 return True
-    # check vertical spaces
+    # check vertical spaces. BB
     for x in range(BOARDWIDTH):
         for y in range(BOARDHEIGHT - 3):
             if board[x][y] == tile and board[x][y+1] == tile and board[x][y+2] == tile and board[x][y+3] == tile:
                 return True
-    # check / diagonal spaces
+    # check / diagonal spaces. BB
     for x in range(BOARDWIDTH - 3):
         for y in range(3, BOARDHEIGHT):
             if board[x][y] == tile and board[x+1][y-1] == tile and board[x+2][y-2] == tile and board[x+3][y-3] == tile:
                 return True
-    # check \ diagonal spaces
+    # check \ diagonal spaces. BB
     for x in range(BOARDWIDTH - 3):
         for y in range(BOARDHEIGHT - 3):
             if board[x][y] == tile and board[x+1][y+1] == tile and board[x+2][y+2] == tile and board[x+3][y+3] == tile:
                 return True
     return False
 
-# Ends game if there are four in a row
+# Ends game if there are four in a row. BB
 if __name__ == '__main__':
     main()
     
