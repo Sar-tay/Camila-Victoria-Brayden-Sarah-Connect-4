@@ -6,11 +6,11 @@
 import random, copy, sys, pygame #imports the different python modules necessary for the game
 from pygame.locals import *
 
-BOARDWIDTH = 7  # specifies how many spaces wide the board is
-BOARDHEIGHT = 6 # specifies how many spaces tall the board is
+BOARDWIDTH = 8  # specifies how many spaces wide the board is
+BOARDHEIGHT = 8 # specifies how many spaces tall the board is
 assert BOARDWIDTH >= 4 and BOARDHEIGHT >= 4, 'Board must be at least 4x4.' # the board must be at least 4 wide and 4 tall
 
-DIFFICULTY = 2 # the number many moves to look ahead. (>2 is usually too much)
+DIFFICULTY = 1 # the number many moves to look ahead. (>2 is usually too much)
 
 SPACESIZE = 50 # size of the tokens and individual board spaces in pixels
 
@@ -49,7 +49,7 @@ def main():
 # imports all nessecary images and resizes them to the correct width and height
     REDPILERECT = pygame.Rect(int(SPACESIZE / 2), WINDOWHEIGHT - int(3 * SPACESIZE / 2), SPACESIZE, SPACESIZE)
     BLACKPILERECT = pygame.Rect(WINDOWWIDTH - int(3 * SPACESIZE / 2), WINDOWHEIGHT - int(3 * SPACESIZE / 2), SPACESIZE, SPACESIZE)
-    REDTOKENIMG = pygame.image.load('4row_red.png')
+    REDTOKENIMG = pygame.image.load('4row_pink_new.png')
     REDTOKENIMG = pygame.transform.smoothscale(REDTOKENIMG, (SPACESIZE, SPACESIZE))
     BLACKTOKENIMG = pygame.image.load('4row_black.png')
     BLACKTOKENIMG = pygame.transform.smoothscale(BLACKTOKENIMG, (SPACESIZE, SPACESIZE))
