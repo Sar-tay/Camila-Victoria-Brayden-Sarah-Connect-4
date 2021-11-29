@@ -281,17 +281,19 @@ def getComputerMove(board):
             bestMoves.append(i)
     return random.choice(bestMoves)
 
-
+# Figures out the moves that can be made.
 def getPotentialMoves(board, tile, lookAhead):
     if lookAhead == 0 or isBoardFull(board):
         return [0] * BOARDWIDTH
+        # Checks to see if their are any moves that can be made.
 
     if tile == RED:
         enemyTile = BLACK
     else:
         enemyTile = RED
-
-    # Figure out the best move to make.
+    # Determines if the codes colour is black or red.
+        
+    #Figures out the best move to make by comparing the possible moves and seeing which are the best or worse given the layout of the game.
     potentialMoves = [0] * BOARDWIDTH
     for firstMove in range(BOARDWIDTH):
         dupeBoard = copy.deepcopy(board)
@@ -301,7 +303,8 @@ def getPotentialMoves(board, tile, lookAhead):
         if isWinner(dupeBoard, tile):
             # a winning move automatically gets a perfect fitness
             potentialMoves[firstMove] = 1
-            break # don't bother calculating other moves
+            break 
+            # don't bother calculating other moves
         else:
             # do other player's counter moves and determine best one
             if isBoardFull(dupeBoard):
@@ -324,7 +327,7 @@ def getPotentialMoves(board, tile, lookAhead):
 
 
 def getLowestEmptySpace(board, column):
-    # Return the row number of the lowest empty row in the given column.
+    # Returns the row that has the lowest empty spot.
     for y in range(BOARDHEIGHT-1, -1, -1):
         if board[column][y] == EMPTY:
             return y
@@ -332,15 +335,16 @@ def getLowestEmptySpace(board, column):
 
 
 def isValidMove(board, column):
-    # Returns True if there is an empty space in the given column.
-    # Otherwise returns False.
+    # Looks at each column, checks which are full and which having empty spaces in them.
+    # Returns true if their is empty space
+    # Returns false if the colum in full
     if column < 0 or column >= (BOARDWIDTH) or board[column][0] != EMPTY:
         return False
     return True
 
 
 def isBoardFull(board):
-    # Returns True if there are no empty spaces anywhere on the board.
+    # Returns True if there are no empty spaces anywhere on the board
     for x in range(BOARDWIDTH):
         for y in range(BOARDHEIGHT):
             if board[x][y] == EMPTY:
@@ -349,6 +353,9 @@ def isBoardFull(board):
 
 
 def isWinner(board, tile):
+# Checks to see if there are four in a row anywhere on the board
+# Returns true if there is
+# Returns false if there is not
     # check horizontal spaces
     for x in range(BOARDWIDTH - 3):
         for y in range(BOARDHEIGHT):
@@ -371,7 +378,7 @@ def isWinner(board, tile):
                 return True
     return False
 
-
+# Ends game if there are four in a row
 if __name__ == '__main__':
     main()
     
