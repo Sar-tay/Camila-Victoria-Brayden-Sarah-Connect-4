@@ -51,7 +51,7 @@ def main():
     BLACKPILERECT = pygame.Rect(WINDOWWIDTH - int(3 * SPACESIZE / 2), WINDOWHEIGHT - int(3 * SPACESIZE / 2), SPACESIZE, SPACESIZE)
     REDTOKENIMG = pygame.image.load('4row_pink_new.png')
     REDTOKENIMG = pygame.transform.smoothscale(REDTOKENIMG, (SPACESIZE, SPACESIZE))
-    BLACKTOKENIMG = pygame.image.load('4row_black.png')
+    BLACKTOKENIMG = pygame.image.load('4row_turq_new.png')
     BLACKTOKENIMG = pygame.transform.smoothscale(BLACKTOKENIMG, (SPACESIZE, SPACESIZE))
     BOARDIMG = pygame.image.load('4row_board.png')
     BOARDIMG = pygame.transform.smoothscale(BOARDIMG, (SPACESIZE, SPACESIZE))
