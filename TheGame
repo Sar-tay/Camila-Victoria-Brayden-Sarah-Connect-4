@@ -58,7 +58,7 @@ def main():
     REDTOKENIMG = pygame.transform.smoothscale(REDTOKENIMG, (SPACESIZE, SPACESIZE))
     BLACKTOKENIMG = pygame.image.load('4row_turq_new.png')
     BLACKTOKENIMG = pygame.transform.smoothscale(BLACKTOKENIMG, (SPACESIZE, SPACESIZE))
-    BOARDIMG = pygame.image.load('4row_board.png')
+    BOARDIMG = pygame.image.load('4row_board_new.png')
     BOARDIMG = pygame.transform.smoothscale(BOARDIMG, (SPACESIZE, SPACESIZE))
 # Imports all nessecary images. VS
     HUMANWINNERIMG = pygame.image.load('4row_humanwinner.png')
