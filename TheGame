@@ -61,9 +61,9 @@ def main():
     BOARDIMG = pygame.image.load('4row_board_new.png')
     BOARDIMG = pygame.transform.smoothscale(BOARDIMG, (SPACESIZE, SPACESIZE))
 # Imports all nessecary images. VS
-    HUMANWINNERIMG = pygame.image.load('4row_humanwinner.png')
-    COMPUTERWINNERIMG = pygame.image.load('4row_computerwinner.png')
-    TIEWINNERIMG = pygame.image.load('4row_tie.png')
+    HUMANWINNERIMG = pygame.image.load('4row_humanwinner_new.png')
+    COMPUTERWINNERIMG = pygame.image.load('4row_computerwinner_new.png')
+    TIEWINNERIMG = pygame.image.load('4row_tie_new.png')
     WINNERRECT = HUMANWINNERIMG.get_rect()
     WINNERRECT.center = (int(WINDOWWIDTH / 2), int(WINDOWHEIGHT / 2))
 # Sets images to the right locations. VS
