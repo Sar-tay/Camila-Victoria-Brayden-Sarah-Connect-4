@@ -101,26 +101,26 @@ def runGame(isFirstGame):
             if showHelp:
                 # turn off help arrow after the first move
                 showHelp = False
-            if isWinner(mainBoard, RED): # if the isWinner functin is true through red tokens the human wins
-                winnerImg = HUMANWINNERIMG # displays an image that the human player is the winner
+            if isWinner(mainBoard, RED): # if the isWinner functin is true through red tokens the human wins ST
+                winnerImg = HUMANWINNERIMG # displays an image that the human player is the winner ST
                 break
             turn = COMPUTER # switch to other player's turn
         else:
             # Computer player's turn
-            column = getComputerMove(mainBoard) # decides which column the computer will play in 
+            column = getComputerMove(mainBoard) # decides which column the computer will play in ST
             animateComputerMoving(mainBoard, column)
-            makeMove(mainBoard, BLACK, column) # computer places a black token in the desired column
+            makeMove(mainBoard, BLACK, column) # computer places a black token in the desired column ST
             if isWinner(mainBoard, BLACK):
                 winnerImg = COMPUTERWINNERIMG # displays an image that the computer is the winner
                 break
             turn = HUMAN # switch to other player's turn
-#using an if statement to determine the result of the game when no one wins
+#using an if statement to determine the result of the game when no one wins ST
         if isBoardFull(mainBoard):
             # A completely filled board means it's a tie.
-            #display an image that says tie
+            #display an image that says tie ST
             winnerImg = TIEWINNERIMG
             break
-#Next section of code is making it so that the winner/tie image remains on the screen until the player exits/quits the game
+#Next section of code is making it so that the winner/tie image remains on the screen until the player exits/quits the game ST
     while True:
         # Keep looping until player clicks the mouse or quits.
         drawBoard(mainBoard)
@@ -134,14 +134,14 @@ def runGame(isFirstGame):
             elif event.type == MOUSEBUTTONUP:
                 return
 
-#function to allow the computer to place pieces
-#if there is still a column on the board that does not have a piece in it that means the computer can make a move
+#function to allow the computer to place pieces ST
+#if there is still a column on the board that does not have a piece in it that means the computer can make a move ST
 def makeMove(board, player, column):
     lowest = getLowestEmptySpace(board, column)
     if lowest != -1:
         board[column][lowest] = player
 
-#defining a function for token display
+#defining a function for token display ST
 def drawBoard(board, extraToken=None):
     DISPLAYSURF.fill(BGCOLOR)
 
@@ -149,19 +149,19 @@ def drawBoard(board, extraToken=None):
     spaceRect = pygame.Rect(0, 0, SPACESIZE, SPACESIZE)
     for x in range(BOARDWIDTH):
         for y in range(BOARDHEIGHT):
-            #coding how the tokens are going to move using the pixels, so that it moves smoothly down the screen, going across all the pixels
+            #coding how the tokens are going to move using the pixels, so that it moves smoothly down the screen, going across all the pixels ST
             spaceRect.topleft = (XMARGIN + (x * SPACESIZE), YMARGIN + (y * SPACESIZE))
             if board[x][y] == RED:
-            #creating conditions under which to display a red token
+            #creating conditions under which to display a red token ST
                 DISPLAYSURF.blit(REDTOKENIMG, spaceRect)
             elif board[x][y] == BLACK: 
-            #if the conditions to display red token are not met that means the conditions to display a balck token are
+            #if the conditions to display red token are not met that means the conditions to display a balck token are ST
                 DISPLAYSURF.blit(BLACKTOKENIMG, spaceRect)
 
     # draw the extra token
     if extraToken != None:
-        if extraToken['color'] == RED: #how to display the tokens, 50 pixels in the x and 50 pixels in the y direction for both red and black depending on which
-                                      #colour is being displayed using the conditions previously defined
+        if extraToken['color'] == RED: #how to display the tokens, 50 pixels in the x and 50 pixels in the y direction for both red and black depending on which ST
+                                      #colour is being displayed using the conditions previously defined ST
             DISPLAYSURF.blit(REDTOKENIMG, (extraToken['x'], extraToken['y'], SPACESIZE, SPACESIZE))
         elif extraToken['color'] == BLACK:
             DISPLAYSURF.blit(BLACKTOKENIMG, (extraToken['x'], extraToken['y'], SPACESIZE, SPACESIZE))
@@ -169,13 +169,13 @@ def drawBoard(board, extraToken=None):
     # draw board over the tokens
     for x in range(BOARDWIDTH):
         for y in range(BOARDHEIGHT):
- #when the tokens are within the range of the board (meaning they have alreayd been played) this places the image of the board over top of the pieces
- #allowing it to look like the tokens are inside of the board
+ #when the tokens are within the range of the board (meaning they have alreayd been played) this places the image of the board over top of the pieces ST
+ #allowing it to look like the tokens are inside of the board ST
             spaceRect.topleft = (XMARGIN + (x * SPACESIZE), YMARGIN + (y * SPACESIZE))
             DISPLAYSURF.blit(BOARDIMG, spaceRect)
 
 #for the unused/unplayed tokens
-    # draw the red and black tokens off to the side
+    # draw the red and black tokens off to the side ST
     DISPLAYSURF.blit(REDTOKENIMG, REDPILERECT) # red on the left
     DISPLAYSURF.blit(BLACKTOKENIMG, BLACKPILERECT) # black on the right
 
@@ -183,7 +183,7 @@ def drawBoard(board, extraToken=None):
 def getNewBoard():
     board = []
     for x in range(BOARDWIDTH):
-        board.append([EMPTY] * BOARDHEIGHT)#this adds empty columns and rows (creating a blank board) because .append adds so ething to the end of a list
+        board.append([EMPTY] * BOARDHEIGHT)#this adds empty columns and rows (creating a blank board) because .append adds so ething to the end of a list ST
     return board
 
 def getHumanMove(board, isFirstMove):
@@ -192,26 +192,26 @@ def getHumanMove(board, isFirstMove):
     while True:
         for event in pygame.event.get(): # event handling loop
             if event.type == QUIT:
-                pygame.quit()#if player quits close game exit the system
+                pygame.quit()#if player quits close game exit the system ST
                 sys.exit()
             elif event.type == MOUSEBUTTONDOWN and not draggingToken and REDPILERECT.collidepoint(event.pos):
-  #This codes what happens when the player clicks on the token, so if the red token is clicked on (mouse button down) it allows the player to be able to drag the token
-               # start of dragging on red token pile.
+  #This codes what happens when the player clicks on the token, so if the red token is clicked on (mouse button down) it allows the player to be able to drag the token ST
+               # start of dragging on red token pile. ST
                 draggingToken = True
                 tokenx, tokeny = event.pos
             elif event.type == MOUSEMOTION and draggingToken:
                 # update the position of the red token being dragged
-   #as the mouse is moving this section codes the image of the token to follow the mouse, the x and y coordinates are equal to where the mouse goes
+   #as the mouse is moving this section codes the image of the token to follow the mouse, the x and y coordinates are equal to where the mouse goes ST
                tokenx, tokeny = event.pos
             elif event.type == MOUSEBUTTONUP and draggingToken:
                 # let go of the token being dragged
-             #tokeny < ymargin = when the token is inside the board width
-             #tokenx > xmargin = when the token is above the board height
-             #aka when the token is hovering over a column
+             #tokeny < ymargin = when the token is inside the board width ST
+             #tokenx > xmargin = when the token is above the board height ST
+             #aka when the token is hovering over a column ST
                 if tokeny < YMARGIN and tokenx > XMARGIN and tokenx < WINDOWWIDTH - XMARGIN:
                     # let go at the top of the screen.
-                    column = int((tokenx - XMARGIN) / SPACESIZE) # tokenx - xmargin = subtracting howmuch space is left availble from where the token currently is
-                    if isValidMove(board, column): # when the subtraction is valid (is 0 or higher) it drops the token
+                    column = int((tokenx - XMARGIN) / SPACESIZE) # tokenx - xmargin = subtracting howmuch space is left availble from where the token currently is ST
+                    if isValidMove(board, column): # when the subtraction is valid (is 0 or higher) it drops the token ST
                         animateDroppingToken(board, column, RED)
                         board[column][getLowestEmptySpace(board, column)] = RED
                         drawBoard(board)
