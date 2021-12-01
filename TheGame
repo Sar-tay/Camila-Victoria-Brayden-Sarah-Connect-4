@@ -228,15 +228,19 @@ def getHumanMove(board, isFirstMove):
             # Show the help arrow for the player's first move.
             DISPLAYSURF.blit(ARROWIMG, ARROWRECT)
 
+        # It updates a section of the screen. CR
         pygame.display.update()
+        #It sets the frames per second, so how fast the program will run. CR
         FPSCLOCK.tick()
 
-
+# Uses cartesian coordinates (x,y) to set the location of the token. CR
 def animateDroppingToken(board, column, color):
     x = XMARGIN + column * SPACESIZE
     y = YMARGIN - SPACESIZE
+    # Sets the speed at which the token will drop. CR
     dropSpeed = 1.0
-
+    
+    #Finds the lowest available spot on the board for the token to drop in. CR
     lowestEmptySpace = getLowestEmptySpace(board, column)
 
     while True:
