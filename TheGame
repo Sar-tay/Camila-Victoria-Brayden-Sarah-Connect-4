@@ -13,8 +13,8 @@ from pygame.locals import *
 
 BOARDWIDTH = 8  # Specifies how many spaces wide the board is. VS
 BOARDHEIGHT = 8 # Specifies how many spaces tall the board is. VS
-assert BOARDWIDTH >= 4 and BOARDHEIGHT >= 4, 'Board must be at least 4x4.' # The board must be at least 4 wide and 4 tall. VS
-
+assert BOARDWIDTH >= 4 and BOARDHEIGHT >= 4, 'Board must be at least 4x4.' 
+# The board must be at least 4 wide and 4 tall. VS
 DIFFICULTY = 1 # The number many moves that the computer looks ahead. VS (>2 is usually too much)
 
 SPACESIZE = 50 # Size of the tokens and individual board spaces in pixels. VS
