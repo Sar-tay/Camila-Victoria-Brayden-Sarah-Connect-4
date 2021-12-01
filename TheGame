@@ -28,10 +28,10 @@ XMARGIN = int((WINDOWWIDTH - BOARDWIDTH * SPACESIZE) / 2)
 YMARGIN = int((WINDOWHEIGHT - BOARDHEIGHT * SPACESIZE) / 2)
 
 #The specific quantities of each colour pigment to acheive the desired colour. VS
-BRIGHTBLUE = (0, 50, 255)
+PURPLE = (255, 0, 255) 
 WHITE = (255, 255, 255)
 
-BGCOLOR = BRIGHTBLUE # The board colour will appear in bright blue. VS
+BGCOLOR = PURPLE # The board colour will appear in purple. VS
 TEXTCOLOR = WHITE # The textcolour will appear in white. VS
 
 #Assigns a varialbe to different string inputs. VS 
