@@ -73,14 +73,16 @@ def main():
     ARROWRECT.centery = REDPILERECT.centery
 
     isFirstGame = True
-# If it is the players first time playing the game the runGame(isFirstGame) function will run and certain choices will be limited to the computer. VS
+# If it is the players first time playing the game the runGame(isFirstGame) function,
+# will run and certain choices will be limited to the computer. VS
     while True:
         runGame(isFirstGame)
         isFirstGame = False
 
 def runGame(isFirstGame):
     if isFirstGame:
-        # Let the computer go first on the first game, so the player can see how the tokens are dragged from the token piles. VS
+        # Let the computer go first on the first game, 
+        # So the player can see how the tokens are dragged from the token piles. VS
         turn = COMPUTER
         showHelp = True
     else:
