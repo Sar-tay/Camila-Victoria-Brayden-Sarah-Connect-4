@@ -390,7 +390,7 @@ def isWinner(board, tile):
                 return True
     return False
 
-# Ends game if there are four in a row. BB
+# A module to run all of the above. BB
 if __name__ == '__main__':
     main()
     
