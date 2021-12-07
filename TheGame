@@ -303,7 +303,7 @@ def getPotentialMoves(board, tile, lookAhead):
         enemyTile = BLACK
     else:
         enemyTile = RED
-    # Determines if the codes colour is black or red.
+    # Determines if the codes colour is black (turquoise) or red (pink).
         
     #Figures out the best move to make by comparing the possible moves and seeing which are the best or worse given the layout of the game. BB
     potentialMoves = [0] * BOARDWIDTH
