@@ -245,6 +245,7 @@ def animateDroppingToken(board, column, color):
     #Finds the lowest available spot on the board for the token to drop in. CR
     lowestEmptySpace = getLowestEmptySpace(board, column)
 
+    #This loop will run until the lowest available spot on the board is less than the axis margin widths. CR
     while True:
         y += int(dropSpeed)
         dropSpeed += 0.5
@@ -278,7 +279,7 @@ def animateComputerMoving(board, column):
     # dropping the black tile
     animateDroppingToken(board, column, BLACK)
 
-
+#Given the board and the potential moves, it determines where to move. CR
 def getComputerMove(board):
     potentialMoves = getPotentialMoves(board, BLACK, DIFFICULTY)
     # get the best fitness from the potential moves
