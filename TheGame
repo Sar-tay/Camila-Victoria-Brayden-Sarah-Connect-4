@@ -255,7 +255,6 @@ def animateDroppingToken(board, column, color):
         pygame.display.update()
         FPSCLOCK.tick()
 
-
 def animateComputerMoving(board, column):
     x = BLACKPILERECT.left
     y = BLACKPILERECT.top
